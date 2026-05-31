@@ -1,0 +1,12 @@
+terraform init
+terraform plan
+terraform apply
+
+kubectl get nodes
+kubectl get pods -n retail-app
+kubectl get ingress -n retail-app
+
+aws sts get-caller-identity
+eksctl create iamserviceaccount
+
+helm install aws-load-balancer-controller

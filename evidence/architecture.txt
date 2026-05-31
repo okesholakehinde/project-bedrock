@@ -1,0 +1,20 @@
+This project demonstrates a cloud-native application deployment using AWS and Kubernetes.
+
+The infrastructure was provisioned using Terraform, including:
+- VPC with public and private subnets
+- NAT Gateway for outbound internet access
+- Amazon EKS cluster for container orchestration
+
+The application is deployed on Kubernetes (EKS) and exposed via an Application Load Balancer (ALB) using Ingress.
+
+Architecture Flow:
+
+User → AWS ALB → Kubernetes Ingress → EKS Pods → Data Layer
+
+The data layer includes:
+- Amazon RDS (MySQL & PostgreSQL)
+- Amazon DynamoDB for product catalog
+
+Sensitive data such as credentials are securely stored in AWS Secrets Manager.
+
+This solution demonstrates scalability, security, and best practices for modern cloud-native applications.
