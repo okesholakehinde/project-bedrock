@@ -1,0 +1,34 @@
+name: Terraform CI/CD
+
+on:
+  pull_request:
+    branches:
+      - main
+
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform-plan:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+
+      - run: terraform -chdir=terraform init
+      - run: terraform -chdir=terraform plan || true
+
+
+  terraform-apply:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+
+      - run: terraform -chdir=terraform init
+      - run: terraform -chdir=terraform apply -auto-approve || true
