@@ -1,1 +1,15 @@
 {}
+{
+  "eks_cluster_name": {
+    "value": "project-bedrock-cluster"
+  },
+  "s3_bucket_name": {
+    "value": "bedrock-assets-kehindeokeshola"
+  },
+  "lambda_function_name": {
+    "value": "bedrock-asset-processor"
+  },
+  "region": {
+    "value": "us-east-1"
+  }
+}
